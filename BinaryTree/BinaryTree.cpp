@@ -5,6 +5,7 @@
 #include "Create.h"
 #include "Traverse_Rec.h"
 #include "Traverse_Not_Rec.h"
+#include "TianQin.h"
 
 using namespace std;
 
@@ -12,7 +13,13 @@ void test_traverse();
 
 int main()
 {
-	test_traverse();
+	node* root = create();
+	node* head = connect_leaves(root);
+	while (head != NULL)
+	{
+		cout << head->value;
+		head = head->rchild;
+	}
 	return 0;
 }
 
@@ -32,6 +39,7 @@ void test_traverse()
 	cout << "递归后序遍历为：" << endl;
 	postorder_rec(root);
 	cout << endl;
+
 	cout << "非递归前序遍历为：" << endl;
 	preorder_not_rec(root);
 	cout << endl;
@@ -40,9 +48,8 @@ void test_traverse()
 	cout << endl;
 	cout << "非递归后序遍历为：" << endl;
 	postorder_not_rec(root);
-
 	cout << endl;
-	cout << "层序遍历为：" << endl;
+	cout << "非递归层序遍历为：" << endl;
 	level_traverse(root);
 }
 

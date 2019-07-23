@@ -27,6 +27,9 @@
     <ClCompile Include="Traverse_Rec.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TianQin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h">
@@ -39,6 +42,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Traverse_Rec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TianQin.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
