@@ -5,5 +5,17 @@
 
 #include "BinaryTree.h"
 
+
 //P165 （二）综合应用题 1 （4）
-node* connect_leaves(node* root);
+node* connect_leaves(node* );
+
+//P166 （二）综合应用题 1 （5）
+void construct_parent(node*, node*);
+void print_path(node *);
+
+//P166 （二）综合应用题 1 （6）
+void convert_pre_to_post(int *,int,int);
+void test_convert();
+
+//P166 （二）综合应用题 1 （7）
+void get_level_number(node *, int, int);
