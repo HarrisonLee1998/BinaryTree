@@ -1,5 +1,7 @@
 #include<iostream>
 #include<stack>
+#include<vector>
+#include<algorithm>
 #include "TianQin.h"
 
 using namespace std;
@@ -114,4 +116,66 @@ void get_level_number(node* root, int value, int level)
 	}
 	get_level_number(root->lchild,value,level+1);
 	get_level_number(root->rchild,value,level+1);
+}
+
+bool compare_value(node* a, node* b)
+{
+	return a->value < b->value; //特别注意，这里是小于而不是大于，因为节点排序是按照权值的从小到大
+}
+void create_huffman_tree()
+{
+	int weight[] = { 2,5,7,9,13 };
+	vector<node*>nodes;
+	//开始构造哈夫曼二叉树
+	node* tmp1, * tmp2, * sum;
+	for (int i = 0; i < sizeof(weight) / sizeof(int); ++i)
+	{
+		tmp1 = new node;
+		tmp1->value = weight[i];
+		tmp1->lchild = NULL;
+		tmp1->rchild = NULL;
+		nodes.push_back(tmp1);
+	}
+	while (nodes.size() > 1)
+	{
+		sort(nodes.begin(),nodes.end(),compare_value);
+		tmp1 = nodes[0];
+		tmp2 = nodes[1];
+		nodes.erase(nodes.begin(),nodes.begin()+2); //移除旧元素
+		sum = new node;
+		sum->value = tmp1->value + tmp2->value;
+		sum->lchild = tmp1;
+		sum->rchild = tmp2;
+		tmp1->parent = sum;
+		tmp2->parent = sum;
+		sum->parent = NULL;
+		nodes.push_back(sum);
+	}
+
+	//构造完毕，开始计算带权路径
+	int WPL=0;
+	stack<node*>s;
+	s.push(nodes[0]);
+	while (!s.empty())
+	{
+		tmp1 = s.top();
+		s.pop();
+		if (tmp1->lchild == NULL && tmp1->rchild == NULL)
+		{
+			int level=0;
+			int value = tmp1->value;
+			while (tmp1 != NULL)
+			{
+				tmp1 = tmp1->parent;
+				++level;
+			}
+			WPL += (level-1)* value;
+		}
+		else
+		{
+			s.push(tmp1->lchild);
+			s.push(tmp1->rchild);
+		}
+	}
+	cout << WPL << endl;
 }

@@ -13,11 +13,7 @@ void test_traverse();
 
 int main()
 {
-	node* root = create();
-	int value;
-	cout << "请输入目标值" << endl;
-	cin >> value;
-	get_level_number(root,value,1);
+	create_huffman_tree();
 	return 0;
 }
 

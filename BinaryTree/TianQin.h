@@ -19,3 +19,6 @@ void test_convert();
 
 //P166 （二）综合应用题 1 （7）
 void get_level_number(node *, int, int);
+
+//P166 （二）综合应用题 1 （8）
+void create_huffman_tree();
