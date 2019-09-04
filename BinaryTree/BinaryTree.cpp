@@ -2,49 +2,24 @@
 //
 
 #include <iostream>
-#include "Create.h"
 #include "Traverse_Rec.h"
-#include "Traverse_Not_Rec.h"
-#include "TianQin.h"
+#include "Rebuild.h"
 
 using namespace std;
 
-void test_traverse();
-
 int main()
 {
-	create_huffman_tree();
-	return 0;
-}
-
-/*
-测试二叉树的各种遍历算法
-包括：前序、中序、后序、层序的递归和非递归实现方案
-*/
-void test_traverse()
-{
-	node* root = create();
-	cout << "递归前序遍历为：" << endl;
+	int n;
+	cin >> n;
+	init(n);
+	node* root = buildFromInAndPost(0, n - 1, 0, n - 1);
+	cout << "前序遍历：  ";
 	preorder_rec(root);
-	cout << endl;
-	cout << "递归中序遍历为：" << endl;
+	cout << endl << "中序遍历：  ";
 	inorder_rec(root);
-	cout << endl;
-	cout << "递归后序遍历为：" << endl;
+	cout << endl << "后序遍历：  ";
 	postorder_rec(root);
-	cout << endl;
-
-	cout << "非递归前序遍历为：" << endl;
-	preorder_not_rec(root);
-	cout << endl;
-	cout << "非递归中序遍历为：" << endl;
-	inorder_not_rec(root);
-	cout << endl;
-	cout << "非递归后序遍历为：" << endl;
-	postorder_not_rec(root);
-	cout << endl;
-	cout << "非递归层序遍历为：" << endl;
-	level_traverse(root);
+	return 0;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

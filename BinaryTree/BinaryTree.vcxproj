@@ -153,13 +153,14 @@
   <ItemGroup>
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Create.cpp" />
+    <ClCompile Include="Rebuild.cpp" />
     <ClCompile Include="TianQin.cpp" />
     <ClCompile Include="Traverse_Not_Rec.cpp" />
     <ClCompile Include="Traverse_Rec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
-    <ClInclude Include="Create.h" />
+    <ClInclude Include="Rebuild.h" />
     <ClInclude Include="TianQin.h" />
     <ClInclude Include="Traverse_Not_Rec.h" />
     <ClInclude Include="Traverse_Rec.h" />
